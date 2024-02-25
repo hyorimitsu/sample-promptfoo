@@ -1,0 +1,9 @@
+services:
+  promptfoo:
+    image: ${PROJECT_NAME}:promptfoo-${DOCKER_BUILD_TAG}
+    build: .
+    environment:
+      - OPENAI_API_KEY
+    volumes:
+      - ./src:/app
+    working_dir: /app

@@ -1,0 +1,24 @@
+description: Simple
+
+prompts:
+  - Write a tweet about {{topic}}.
+  - Write a funny tweet about {{topic}} with the prerequisite that it be no more than 140 characters (including spaces and symbols).
+
+providers:
+  - openai:gpt-3.5-turbo
+  - openai:gpt-4
+
+tests:
+  - vars:
+      topic: AWS, Google Cloud and Azure
+      max_length: 140
+    assert:
+      - type: icontains-all
+        value:
+          - AWS
+          - Google Cloud
+          - Azure
+      - type: javascript
+        value: '[...(new Intl.Segmenter("ja", { granularity: "grapheme" })).segment(output)].length <= context.vars.max_length;'
+      - type: llm-rubric
+        value: ensure that the output is funny

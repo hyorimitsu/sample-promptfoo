@@ -47,6 +47,7 @@ jobs:
         working-directory: ./${{ env.TARGET_DIR }}
 
       - name: Comment PR
+        if: always()
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

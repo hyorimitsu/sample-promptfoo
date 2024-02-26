@@ -38,18 +38,16 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           PROMPTFOO_CACHE_PATH: ~/.cache/promptfoo
-        run: |
-          promptfoo eval -o output.json --share
-          echo "OUTPUT_JSON_PATH=$GITHUB_WORKSPACE/output.json" >> $GITHUB_ENV
+        run: promptfoo eval -o output.json --share
         working-directory: ./${{ env.TARGET_DIR }}
 
       - name: Comment PR
         uses: actions/github-script@v7
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
-            const output = JSON.parse(fs.readFileSync(process.env.OUTPUT_JSON_PATH, 'utf8'));
+            const output = JSON.parse(fs.readFileSync('./output.json', 'utf8'));
             const body = `⚠️ LLM prompt was modified.\n\n| Success | Failure |\n|---------|---------|\n| ${output.results.stats.successes}      | ${output.results.stats.failures}       |\n\n**» [View eval results](${output.shareableUrl}) «**`;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
@@ -57,3 +55,4 @@ jobs:
               repo: context.repo.repo,
               body: body
             });
+        working-directory: ./${{ env.TARGET_DIR }}

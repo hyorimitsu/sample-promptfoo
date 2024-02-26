@@ -4,6 +4,7 @@ services:
     build: .
     environment:
       - OPENAI_API_KEY
+      - SERPAPI_API_KEY
     volumes:
       - ${TARGET_DIR}:/app
     working_dir: /app

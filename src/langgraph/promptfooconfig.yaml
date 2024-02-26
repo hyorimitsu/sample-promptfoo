@@ -1,0 +1,17 @@
+description: LangGraph
+
+prompts:
+  - prompt.txt
+
+providers:
+  - id: openai:gpt-3.5-turbo
+  - id: python:provider.py
+
+tests:
+  - vars:
+      query: Write a tweet introducing Hiroki Yorimitsu
+    assert:
+      - type: factuality
+        value: Hiroki Yorimits is web developer
+      - type: llm-rubric
+        value: ensure that the output is Twitter-like

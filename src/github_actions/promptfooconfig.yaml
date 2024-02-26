@@ -1,0 +1,20 @@
+description: GitHub Actions
+
+prompts:
+  - prompt.json
+
+providers:
+  - openai:gpt-4-turbo-preview
+
+tests:
+  - vars:
+      industry: tech
+      topic: OpenAI
+      max_length: 140
+    assert:
+      - type: icontains
+        value: OpenAI
+      - type: javascript
+        value: '[...(new Intl.Segmenter("ja", { granularity: "grapheme" })).segment(output)].length <= context.vars.max_length;'
+      - type: llm-rubric
+        value: ensure that the output is Twitter-like

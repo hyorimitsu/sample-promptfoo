@@ -40,13 +40,13 @@ jobs:
           PROMPTFOO_CACHE_PATH: ~/.cache/promptfoo
         run: |
           promptfoo eval -o output.json --share
-          echo "OUTPUT_JSON_PATH=$GITHUB_WORKSPACE/output.json" >> $GITHUB_ENV
+          echo "OUTPUT_JSON_PATH=$GITHUB_WORKSPACE/${{ env.TARGET_DIR }}/output.json" >> $GITHUB_ENV
         working-directory: ./${{ env.TARGET_DIR }}
 
       - name: Comment PR
         uses: actions/github-script@v7
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const output = JSON.parse(fs.readFileSync(process.env.OUTPUT_JSON_PATH, 'utf8'));

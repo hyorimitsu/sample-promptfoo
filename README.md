@@ -1,4 +1,4 @@
-Sample Promptfoo
+Sample promptfoo
 ---
 
 This is a sample of [promptfoo](https://www.promptfoo.dev/), a tool for measuring LLM quality and detecting regressions.
@@ -15,7 +15,7 @@ This is a sample of [promptfoo](https://www.promptfoo.dev/), a tool for measurin
 
 ## Usage
 
-Please refer to the respective READMEs.
+Please refer to the respective READMEs for detailed instructions:
 
 - [Simple Usage](https://github.com/hyorimitsu/sample-promptfoo/blob/main/src/simple/README.md)
 - [Custom Provider (with LangGraph App)](https://github.com/hyorimitsu/sample-promptfoo/blob/main/src/langgraph/README.md)

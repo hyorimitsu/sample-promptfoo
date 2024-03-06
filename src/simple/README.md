@@ -7,13 +7,13 @@ This is a simple sample using [promptfoo](https://www.promptfoo.dev/).
 
 1. Set environment variables
 
-    Copy the .env.sample to create the .env file.
+    Copy `.env.sample` to create your .env file.
 
     ```shell
     cp .env.sample .env
     ```
 
-    Then, set the following values in the created .env file.
+    Next, set the following values in your .env file.
 
     ```
     OPENAI_API_KEY=your_openai_api_key_here
@@ -22,7 +22,7 @@ This is a simple sample using [promptfoo](https://www.promptfoo.dev/).
 
 2. Run the evaluation
 
-    You can run the evaluation with the following command.
+    Run the evaluation with the following command.
 
     ```shell
     ./promptfoo.sh eval
@@ -34,9 +34,9 @@ This is a simple sample using [promptfoo](https://www.promptfoo.dev/).
     ./promptfoo.sh eval --share
     ```
 
-3. Confirmation of evaluation results
+3. Viewing the Evaluation Results
 
-    The results are displayed in the terminal (or web browser if you are issuing a shared URL) as follows.
+    The results will be displayed in the terminal (or in a web browser if you issue a shared URL) as follows.
 
     ![simple_result](https://github.com/hyorimitsu/sample-promptfoo/blob/main/src/simple/simple_result.png)
 

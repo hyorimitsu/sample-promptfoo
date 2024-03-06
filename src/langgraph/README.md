@@ -39,6 +39,6 @@ This is a custom provider sample using [promptfoo](https://www.promptfoo.dev/) a
 
     The results will be displayed in the terminal (or in a web browser if you issue a shared URL) as follows.
 
-    ![langgraph_result](https://github.com/hyorimitsu/sample-promptfoo/blob/main/src/simple/langgraph_result.png)
+    ![langgraph_result](https://github.com/hyorimitsu/sample-promptfoo/blob/main/src/langgraph/langgraph_result.png)
 
     The results are displayed in a table format, covering the combinations of `prompts`, `providers`, and `tests` defined in `promptfooconfig.yaml`.
